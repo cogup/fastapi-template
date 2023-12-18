@@ -1,0 +1,25 @@
+{
+  "short_name": "x-admin",
+  "name": "X Admin",
+  "icons": [
+    {
+      "src": "icons/64.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#8F00D3",
+  "background_color": "#ffffff"
+}
