@@ -8,14 +8,16 @@ interface File {
 }
 
 export class PublicRoutes extends MakeRouters {
-  openAPISpec?: string;
+  openAPISpec?: OpenAPI;
+  openAPISpecString?: string;
 
   setOpenAPISpec(openAPISpec: OpenAPI) {
-    this.openAPISpec = JSON.stringify(openAPISpec);
+    this.openAPISpec = openAPISpec;
+    this.openAPISpecString = JSON.stringify(openAPISpec);
   }
 
   @Get('/api/*')
-  async apiRouter(request: Request, reply: Reply): Promise<Reply> {
+  async apiRouter(_request: Request, reply: Reply): Promise<Reply> {
     return reply.code(404).send({
       error: {
         code: 404,
@@ -43,8 +45,8 @@ export class PublicRoutes extends MakeRouters {
       return reply.header('Content-Type', file.contentType).send(content);
     } else if (filename === 'manifest.json') {
       return reply.header('Content-Type', 'application/json').send({
-        short_name: 'FastApi',
-        name: 'FastApi Template API',
+        short_name: this.openAPISpec?.info?.title || 'FastApi API',
+        name: this.openAPISpec?.info?.title || 'FastApi API',
         icons: [
           {
             src: '/icons/64.png',

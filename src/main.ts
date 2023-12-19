@@ -11,7 +11,7 @@ async function main() {
 
   const fastAPI = new FastAPI({
     info: {
-      title: 'CoFastApi Template API',
+      title: 'FastApi Template API',
       description: 'FastApi Template API.',
       version: version
     },
