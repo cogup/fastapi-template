@@ -1,4 +1,4 @@
-import { Model, DataTypes } from 'sequelize';
+import { Model, DataTypes } from '@cogup/fastapi';
 import { sequelize } from '.';
 
 enum MessageStatus {
@@ -8,12 +8,7 @@ enum MessageStatus {
   AWAIT = 'await'
 }
 
-class /* The `Message` class is a Sequelize model representing a message entity in a database. It
-defines the structure and properties of a message, including its id, message content, status,
-and userId. The `Message` class also initializes the model using the `init` method provided by
-Sequelize, specifying the data types and constraints for each property. The `MessageStatus`
-enum is used to define the possible values for the `status` property. */
-Message extends Model {}
+class Message extends Model {}
 
 Message.init(
   {
@@ -33,7 +28,8 @@ Message.init(
         MessageStatus.COMPLETED,
         MessageStatus.ERROR,
         MessageStatus.AWAIT
-      )
+      ),
+      defaultValue: MessageStatus.PENDING
     },
     userId: {
       type: DataTypes.INTEGER,

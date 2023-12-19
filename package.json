@@ -13,8 +13,10 @@
   "author": "philippe.assis@cogup.ai",
   "license": "ISC",
   "dependencies": {
-    "@cogup/fastapi": "github:cogup/fastapi#0.5.9",
+    "@cogup/fastapi": "github:cogup/fastapi#0.6.3",
+    "@cogup/fastapi-x-admin": "github:cogup/fastapi-x-admin#0.0.8",
     "dotenv": "^16.3.1",
+    "fastapi-x-admin": "github:cogup/fastapi-x-admin",
     "mime-types": "^2.1.35",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",

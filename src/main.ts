@@ -4,19 +4,19 @@ const version = packageJson.version;
 import { FastAPI } from '@cogup/fastapi';
 import { schema, sequelize } from 'models';
 import { MessageRouters } from 'routes/messages';
-import { PublicRoutes } from 'routes/public';
+import { AdminRouters } from '@cogup/fastapi-x-admin';
+import { MessageHandlers } from 'handlers/message';
 
 async function main() {
-  const publicRoutes = new PublicRoutes();
-
   const fastAPI = new FastAPI({
     info: {
-      title: 'FastApi Template API',
-      description: 'FastApi Template API.',
+      title: 'FastApi',
+      description: 'FastApi API.',
       version: version
     },
     schema,
-    routes: [MessageRouters, publicRoutes],
+    routes: [MessageRouters, AdminRouters],
+    handlers: [MessageHandlers],
     sequelize,
     listen: {
       port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
@@ -32,8 +32,6 @@ async function main() {
       }
     ]
   });
-
-  publicRoutes.setOpenAPISpec(fastAPI.getOpenAPISpec());
 
   await fastAPI.listen();
 }

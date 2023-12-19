@@ -2,10 +2,7 @@ import 'dotenv/config';
 import { FastAPI } from '@cogup/fastapi';
 import { schema, sequelize } from 'models';
 import { MessageRouters } from 'routes/messages';
-
-if (process.env.DATABASE_URL === undefined) {
-  throw new Error('DATABASE_URL required.');
-}
+import { MessageHandlers } from 'handlers/message';
 
 describe('chat', () => {
   let fastAPI: any;
@@ -14,6 +11,7 @@ describe('chat', () => {
     fastAPI = new FastAPI({
       schema,
       routes: [MessageRouters],
+      handlers: [MessageHandlers],
       sequelize
     });
   });
@@ -37,5 +35,18 @@ describe('chat', () => {
     });
 
     expect(message.statusCode).toBe(200);
+  });
+
+  test('should be able to handler get one', async () => {
+    const message = await fastAPI.api.inject({
+      method: 'POST',
+      url: '/api/messages',
+      payload: {
+        userId: 1
+      }
+    });
+
+    expect(message.statusCode).toBe(201);
+    expect(message.json()).toEqual({ message: 'Hello World' });
   });
 });

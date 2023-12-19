@@ -1,4 +1,4 @@
-import { Model, DataTypes } from 'sequelize';
+import { Model, DataTypes } from '@cogup/fastapi';
 import { sequelize } from '.';
 
 class User extends Model {}

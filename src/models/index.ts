@@ -1,8 +1,7 @@
-import { ResourceType, SchemaModelsBuilder } from '@cogup/fastapi';
-import { Sequelize } from 'sequelize';
+import { ResourceType, SchemaModelsBuilder, Sequelize } from '@cogup/fastapi';
 
-if (process.env.DATABASE_URL === undefined) {
-  throw new Error('DATABASE_URL required.');
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL is not defined');
 }
 
 const sequelize = new Sequelize(process.env.DATABASE_URL);
