@@ -11,8 +11,8 @@ async function main() {
 
   const fastAPI = new FastAPI({
     info: {
-      title: 'CogGPT API',
-      description: 'CogGPT API.',
+      title: 'CoFastApi Template API',
+      description: 'FastApi Template API.',
       version: version
     },
     schema,

@@ -43,8 +43,8 @@ export class PublicRoutes extends MakeRouters {
       return reply.header('Content-Type', file.contentType).send(content);
     } else if (filename === 'manifest.json') {
       return reply.header('Content-Type', 'application/json').send({
-        short_name: 'coggpt',
-        name: 'CogGPT',
+        short_name: 'FastApi',
+        name: 'FastApi Template API',
         icons: [
           {
             src: '/icons/64.png',
