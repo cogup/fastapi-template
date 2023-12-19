@@ -2,15 +2,5 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[typescript]": {
     "editor.formatOnSave": true
-  },
-  "cSpell.words": [
-    "chatwoot",
-    "Cogchat",
-    "cogup",
-    "fastapi",
-    "luxon",
-    "Millis",
-    "popule",
-    "ptbr"
-  ]
+  }
 }
