@@ -13,7 +13,7 @@ export class MessageRouters extends MakeRouters {
   }
 
   @Post({
-    path: '/fake',
+    path: '/api/messages/fake',
     summary: 'Create a fake message',
     description: 'Create a fake message',
     body: {

@@ -26,4 +26,16 @@ describe('chat', () => {
 
     expect(users.statusCode).toBe(200);
   });
+
+  test('should be able to create a fake', async () => {
+    const message = await fastAPI.api.inject({
+      method: 'POST',
+      url: '/api/messages/fake',
+      payload: {
+        userId: 1
+      }
+    });
+
+    expect(message.statusCode).toBe(200);
+  });
 });
