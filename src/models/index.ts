@@ -10,8 +10,8 @@ const sequelize = new Sequelize(process.env.DATABASE_URL);
 import { Message } from './message';
 import { User } from './user';
 
-Message.hasMany(User, { foreignKey: 'userId' });
-User.belongsTo(Message, { foreignKey: 'userId' });
+Message.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Message, { foreignKey: 'userId' });
 
 const schema = new SchemaModelsBuilder();
 
