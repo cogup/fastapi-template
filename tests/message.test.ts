@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { FastAPI } from '@cogup/fastapi';
 import { schema, sequelize } from 'models';
 import { MessageRouters } from 'routes/messages';
-import { MessageHandlers } from 'handlers/message';
+import { MessageHandlers } from 'services/handlers/message';
 
 describe('chat', () => {
   let fastAPI: any;
@@ -47,6 +47,9 @@ describe('chat', () => {
     });
 
     expect(message.statusCode).toBe(201);
-    expect(message.json()).toEqual({ message: 'Hello World' });
+    expect(message.json()).toEqual({
+      message: 'Hello World',
+      status: 'pending'
+    });
   });
 });

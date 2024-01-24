@@ -1,11 +1,11 @@
-import { MakeRouters, Post, Reply, Request } from '@cogup/fastapi';
+import { Builder, Post, Reply, Request } from '@cogup/fastapi';
 import { MessageRepository } from 'repositories/message';
 
 interface PostMessageSlugRequest {
   userId: number;
 }
 
-export class MessageRouters extends MakeRouters {
+export class MessageRouters extends Builder {
   constructor() {
     super();
 

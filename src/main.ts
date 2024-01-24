@@ -5,7 +5,7 @@ import { FastAPI } from '@cogup/fastapi';
 import { schema, sequelize } from 'models';
 import { MessageRouters } from 'routes/messages';
 import { AdminRouters } from '@cogup/fastapi-x-admin';
-import { MessageHandlers } from 'handlers/message';
+import { MessageHandlers } from 'services/handlers/message';
 
 async function main() {
   const fastAPI = new FastAPI({
